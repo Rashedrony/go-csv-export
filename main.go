@@ -14,11 +14,11 @@ func main() {
 	}
 
 	f, err := os.Create("user.csv")
-	f1, err1 := os.Create("user1.csv")
+
 	defer f.Close()
 
 	if err != nil {
-		log.Fatal("Failed to create", err)
+		log.Fatal("Failed to open file", err)
 	}
 
 	writer := csv.NewWriter(f)
@@ -30,8 +30,11 @@ func main() {
 		}
 	}
 
+	// another procedure
+	f1, err1 := os.Create("user1.csv")
+
 	if err1 != nil {
-		log.Fatal("Failed to create", err)
+		log.Fatal("Failed to open file", err)
 	}
 
 	writer1 := csv.NewWriter(f1)
